@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
+import { Personaje } from '../interfaces/dbz.interface';
 
-interface Personaje {
-  nombre: string;
-  poder: number;
-}
+
 
 @Component({
   selector: 'app-main-page',
@@ -23,26 +21,11 @@ export class MainPageComponent {
   ]
 
   nuevo: Personaje = {
-    nombre: '',
-    poder: 0, 
+    nombre: 'Maestro Roshi',
+    poder: 1000
   }
 
-  agregar(){
-    if ( this.nuevo.nombre.trim().length === 0 ){ //no hacer nada si esta vacio
-      return;
-    }
-
-    console.log(this.nuevo)
-
-    // agregar al array
-    this.personajes.push( this.nuevo );
-
-    // limpiar los campos
-    this.nuevo = {
-      nombre: '',
-      poder: 0
-    }
-
+  agregarNuevoPersonaje( argumento:Personaje ) {
+    this.personajes.push(argumento)
   }
-
 }
